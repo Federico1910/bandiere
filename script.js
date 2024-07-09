@@ -5,6 +5,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.getElementById('next-btn');
     const resultText = document.getElementById('result');
 
+    //cambio il colore del tema cliccando sul tasto invia
+    const colors = ['red', 'blue', 'green', 'yellow', 'purple', 'orange','pink', 'darkyellow', 'black',
+         '#4ddbff', '#ff0066', '#664400'];
+    let currentIndex = 0;
+
+    document.getElementById('cambiotema').addEventListener('click', function() {
+        currentIndex = (currentIndex + 1) % colors.length;
+        document.body.style.backgroundColor = colors[currentIndex];
+    });
+
+    
+
+
+
+
     let countries = [];
     let currentCountry = {};
 
@@ -51,4 +66,5 @@ document.addEventListener('DOMContentLoaded', () => {
     nextBtn.addEventListener('click', newQuestion);
 
     fetchCountries();
+
 });
