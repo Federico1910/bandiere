@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: montserrat, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,19 +12,18 @@ body {
 #tema{
  
     background: #271c85;
-    padding: 20px;
+    padding: 10px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgb(255, 255, 255);
+    box-shadow: 0 0 5px rgb(255, 255, 255);
     text-align: center;
-   
-    border-right: 20px;
     color: #fff;
+  
 
 }
 #cambiotema{
     display: block;
-    margin: 10px auto;
-    padding: 10px 20px;
+    margin: 5px auto;
+    padding: 5px 15px;
     background: #007BFF;
     color: #fff;
     border: none;
@@ -37,8 +36,9 @@ body {
     background: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 5px rgb(255, 255, 255);
     text-align: center;
+    
 }
 
 #flag-container {

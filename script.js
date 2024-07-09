@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const optionsContainer = document.getElementById('options-container');
     const nextBtn = document.getElementById('next-btn');
     const resultText = document.getElementById('result');
+    let blockbutton = []; //per fixare il problema dei bottoni
 
     //cambio il colore del tema cliccando sul tasto invia
     const colors = ['red', 'blue', 'green', 'yellow', 'purple', 'orange','pink', 'darkyellow', 'black',
@@ -15,8 +16,19 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.backgroundColor = colors[currentIndex];
     });
 
-    
 
+//punteggio risposte corrette o sbagliate
+let score = 0;
+
+function punteggio(isCorrect, button) {
+    if (isCorrect) {
+        score++;
+    } else {
+        score--;
+    }
+    document.getElementById('score').innerText = score;
+
+}
 
 
 
@@ -38,11 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
         currentCountry = randomCountries[Math.floor(Math.random() * randomCountries.length)];
 
         flagImg.src = currentCountry.flags.png;
-
+         blockbutton = [];
         randomCountries.forEach(country => {
             const button = document.createElement('button');
             button.textContent = country.name.common;
             button.addEventListener('click', () => checkAnswer(country));
+blockbutton.push(button);
             optionsContainer.appendChild(button);
         });
     }
@@ -53,6 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function checkAnswer(selectedCountry) {
+        blockbutton.forEach(btn => btn.disabled = true);
+
         if (selectedCountry.name.common === currentCountry.name.common) {
             resultText.textContent = 'Corretto!';
             resultText.style.color = 'green';
